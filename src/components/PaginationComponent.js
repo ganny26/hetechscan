@@ -26,11 +26,7 @@ class PaginationComponent extends Component {
     }
     render() {
       const pageNumbers = [];
-      const PageNumberComponent = pageNumbers.map(number=>{
-        return(
-          <li key={} id={} onClick={handleNextPage}/>
-        )
-      })
+   
         return (
             <nav aria-label="Page navigation example">
             <ul className="pagination">
