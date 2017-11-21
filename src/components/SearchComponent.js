@@ -4,7 +4,6 @@ import '../App.css';
 
 const UserItems = (props) => {
     const userList = props.users;
-
     const listItems = userList.map((q, index) =>
         <li key={index}>
             {q}
@@ -14,7 +13,17 @@ const UserItems = (props) => {
 }
 
 
+
 class SearchComponent extends Component {
+     GetUsers() {
+        Service.getUsers().then((result) => {
+            let userList = result;
+            this.setState({
+                "userData": userList.data.map((e)=>e.email)
+            })
+        })
+    }
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -42,18 +51,12 @@ class SearchComponent extends Component {
         console.log("clicked");
     }
 
-
-    componentWillMount() {
-        Service.getUsers().then((result) => {
-           
-            let userList = result;
-           
-            this.setState({
-                "userData": userList.data.map((e)=>e.email)
-            })
-        })
-        console.log("componentWillMount");
+   
+    componentDidMount(){
+        this.GetUsers()
     }
+
+   
     render() {
         return (
             <div className="container">
