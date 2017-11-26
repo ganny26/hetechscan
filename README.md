@@ -1,4 +1,3 @@
-React boilerplate component to build app faster
-
--- Search Component
--- Pagination Component
+# React boilerplate component to build apps faster
+  - Search Component
+  - Pagination Component
