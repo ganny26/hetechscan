@@ -25,7 +25,7 @@ class PaginationComponent extends Component {
         
     }
     render() {
-      const pageNumbers = [];
+
    
         return (
             <nav aria-label="Page navigation example">
