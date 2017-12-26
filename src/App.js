@@ -7,9 +7,9 @@ import {
 import './App.css';
 import SearchComponent from '../src/components/SearchComponent';
 import PaginationComponent from '../src/components/PaginationComponent';
-import CheckboxComponent from '../src/components/CheckboxComponent';
+import DropdownComponent from '../src/components/DropdownComponent'
 import Checkbox from '../src/components/CheckBox';
-
+import DropDown from '../src/components/DropDown';
 
 class App extends Component {
   render() {
@@ -21,11 +21,13 @@ class App extends Component {
               <p> <Link to="/">Search</Link></p>
               <p><Link to="/page">Pagination</Link></p>
               <p><Link to="/checkbox">Checkbox</Link></p>
+              <p><Link to="/dropdown">Dropdown</Link></p>
             </div>
             <div className="col-md-8">
               <Route exact path="/" component={SearchComponent} />
               <Route path="/page" component={PaginationComponent} />
               <Route path="/checkbox" component={Checkbox} />
+              <Route path="/dropdown" component={DropDown} />
             </div>
           </div>
         </div>
