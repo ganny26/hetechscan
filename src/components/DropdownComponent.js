@@ -4,7 +4,7 @@ let ddList = ['Java', 'Node JS', 'Python', 'Shell', 'Bash'];
 const DropdownItem = (props) => {
     console.log(props);
     const itemList = props.itemList;
-    const listItems = itemList.map((value, index, array) =>
+    const listItems = itemList.map((value, index,array) =>
         <li className="dropdown-item" key={index}>
             {value}
         </li>
@@ -17,13 +17,15 @@ class DropdownComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            "option": []
+            "option": [],
+            "name":""
         }
 
     }
     componentWillMount() {
         this.setState({
-            "option": this.props.options
+            "option":this.props.options,
+            "name":this.props.name
         })
     }
     render() {
@@ -34,11 +36,11 @@ class DropdownComponent extends Component {
                     id="dropdownMenuButton"
                     data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    Dropdown button
+                    {this.state.name}
             </button>
-                <div className="dropdown-menu" >
-                    {/* <DropdownItem itemList={this.state.option}/> */}
-                </div>
+            <div className="dropdown-menu" >
+               <DropdownItem itemList={this.state.option}/>
+               </div>
             </div>
         )
     }
