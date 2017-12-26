@@ -32,6 +32,7 @@ class PaginationComponent extends Component {
             <ul className="pagination">
               <li className="page-item">
                 <a className="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&lt;</span>
                   <span className="sr-only">Previous</span>
                 </a>
               </li>
@@ -40,7 +41,7 @@ class PaginationComponent extends Component {
               <li className="page-item"><a className="page-link" href="#">3</a></li>
               <li className="page-item">
                 <a className="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
+                  <span aria-hidden="true">&gt;</span>
                   <span className="sr-only">Next</span>
                 </a>
               </li>
