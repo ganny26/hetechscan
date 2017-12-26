@@ -5,33 +5,27 @@ import {
   Link
 } from 'react-router-dom';
 import './App.css';
-import SearchComponent from '../src/components/SearchComponent';
-import PaginationComponent from '../src/components/PaginationComponent';
-import DropdownComponent from '../src/components/DropdownComponent'
-import Checkbox from '../src/components/CheckBox';
-import DropDown from '../src/components/DropDown';
+
+import CaptionComponent from '../src/components/CaptionComponent';
+import SideBar from '../src/components/SideBar';
+import Main from '../src/components/Main';
 
 class App extends Component {
   render() {
     return (
-      <Router>
+      <div>
         <div className="container" style={{ marginTop: 30 }}>
           <div className="row">
             <div className="col-md-3">
-              <p> <Link to="/">Search</Link></p>
-              <p><Link to="/page">Pagination</Link></p>
-              <p><Link to="/checkbox">Checkbox</Link></p>
-              <p><Link to="/dropdown">Dropdown</Link></p>
+              <SideBar />
             </div>
             <div className="col-md-8">
-              <Route exact path="/" component={SearchComponent} />
-              <Route path="/page" component={PaginationComponent} />
-              <Route path="/checkbox" component={Checkbox} />
-              <Route path="/dropdown" component={DropDown} />
+              <Main />
             </div>
           </div>
         </div>
-      </Router>
+        <CaptionComponent />
+      </div>
     );
   }
 }
