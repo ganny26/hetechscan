@@ -9,6 +9,7 @@ import SearchComponent from '../components/SearchComponent';
 import PaginationComponent from '../components/PaginationComponent';
 import Checkbox from '../components/CheckBox';
 import DropDown from '../components/DropDown';
+import PlayerComponent from '../components/PlayerComponent';
 
 const Main = () => (
     <div>
@@ -17,6 +18,7 @@ const Main = () => (
             <Route path="/page" component={PaginationComponent} />
             <Route path="/checkbox" component={Checkbox} />
             <Route path="/dropdown" component={DropDown} />
+            <Route path="/player" component={PlayerComponent} />
         </Switch>
     </div>
 )
