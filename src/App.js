@@ -9,6 +9,7 @@ import './App.css';
 import CaptionComponent from '../src/components/CaptionComponent';
 import SideBar from '../src/components/SideBar';
 import Main from '../src/components/Main';
+import InstaComponent from '../src/components/InstaComponent';
 
 
 var ntext = ["2017 belonged to AI, blockchain which has made many biting their fingers both with excitement & opportunity.",
@@ -93,13 +94,18 @@ class App extends Component {
           <div className="row">
             <div className="col-md-3">
               <SideBar />
+              <button className="btn btn-success" onClick={this.start.bind(this)}>Speak</button>
+               
+                <button className="btn btn-success" onClick={this.stop}>Stop</button>
+                <button className="btn btn-success" onClick={this.play}>Resume</button>
                </div>
             <div className="col-md-8">
               <Main />
             </div>
           </div>
         </div>
-    {this.props.children}
+      {/* <CaptionComponent narration = {this.state.text} /> */}
+      <InstaComponent narration = {this.state.text}/>
       </div>
     );
   }
