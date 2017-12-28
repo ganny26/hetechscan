@@ -10,6 +10,7 @@ const SideBar = () => (
         <p><Link to="/page">Pagination</Link></p>
         <p><Link to="/checkbox">Checkbox</Link></p>
         <p><Link to="/dropdown">Dropdown</Link></p>
+        <p><Link to="/player">Player</Link></p>
     </div>
 )
 
