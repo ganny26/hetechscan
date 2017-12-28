@@ -9,44 +9,29 @@ import './App.css';
 import CaptionComponent from '../src/components/CaptionComponent';
 import SideBar from '../src/components/SideBar';
 import Main from '../src/components/Main';
-let digits = [
-  "An",
-  "inside",
-  "look",
-  "from",
-  "Team",
-  "CodePen",
-  "on",
-  "what",
-  "it's",
-  "like",
-  "running",
-  "a",
-  "web",
-  "business.",
-  "Everything",
-  "from",
-  "server",
-  "infrastructure,",
-  "to",
-  "day-to-day",
-  "operations,",
-  "to",
-  "new",
-  "feature",
-  "development."
-];
 
 
+var ntext = ["2017 belonged to AI, blockchain which has made many biting their fingers both with excitement & opportunity.",
+  "Tech industries have continued to expand & evolved at an unbelievable pace and will continue to do so in 2018. ",
+  "Sectors all poised to rule 2018 will be Blockchain based Cryptos will be widely accepted within financial sectors and insurance sectors as a mode of transactions for their consumer based services",
+  "Robots will partner with humans to augment their intelligence & help them function efficiently",
+  "With high speed internet network and 4K HD contents, mobile phone is a new TV for online users"]
 
+
+let count = 0;
 class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      value: 0
+      value: 0,
+      count: 0,
+      text: "",
+      caption: "One thing to note is that the React documentation makes use of arrow"
     }
-    this.narate = this.narate.bind(this)
+    this.narate = this.narate.bind(this);
+    this.speak = this.speak.bind(this);
+    this.start = this.start.bind(this);
 
   }
 
@@ -54,10 +39,52 @@ class App extends Component {
   narate() {
     console.log("updated");
     this.setState({
-      value: this.state.value + 1
+      text: this.state.value + 1
     })
   }
 
+  getDigit(index) {
+    return ntext[index];
+  }
+
+  componentWillMount() {
+
+  }
+
+  updateState(value) {
+    console.log('calling update')
+    this.setState({
+      "text": value
+    })
+  }
+
+  speak(text) {
+    if (text.length) {
+      var utterThis = new SpeechSynthesisUtterance();
+      utterThis.text = text[0];
+      utterThis.onstart = function (uttr) {
+        console.log('speech started!');
+      }
+
+      utterThis.addEventListener('end', function (e) {
+        console.log('speech ended!')
+        setTimeout(() => {
+          this.updateState(text[1]);
+          this.speak(text.slice(1));
+        }, 1000);
+      }.bind(this));
+      utterThis.voice = speechSynthesis.getVoices()[0];
+      utterThis.pitch = parseFloat(1.5);
+      utterThis.rate = parseFloat(1);
+      utterThis.volume = parseFloat(1);
+      speechSynthesis.speak(utterThis);
+    }
+  }
+
+  start() {
+    this.speak(ntext)
+    this.updateState(ntext[0]);
+  }
 
   render() {
     return (
@@ -65,19 +92,14 @@ class App extends Component {
         <div className="container" style={{ marginTop: 30 }}>
           <div className="row">
             <div className="col-md-3">
-          
               <SideBar />
-              <button className="btn btn-success" onClick={this.narate.bind(this)}>Update</button>
-            </div>
+               </div>
             <div className="col-md-8">
-         
               <Main />
             </div>
           </div>
         </div>
-      
-        <CaptionComponent narration={this.state.value} />
-      
+    {this.props.children}
       </div>
     );
   }
