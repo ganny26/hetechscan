@@ -49,7 +49,9 @@ class App extends Component {
   }
 
   componentWillMount() {
-
+      this.setState({
+        "text":"Narration text goes here!"
+      })
   }
 
   updateState(value) {
