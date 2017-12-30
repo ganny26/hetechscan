@@ -5,7 +5,7 @@ import {
   Link
 } from 'react-router-dom';
 import './App.css';
-
+import AppStore from './store/AppStore';
 import CaptionComponent from '../src/components/CaptionComponent';
 import SideBar from '../src/components/SideBar';
 import Main from '../src/components/Main';
@@ -24,6 +24,7 @@ class App extends Component {
 
   constructor(props) {
     super(props);
+   
     this.state = {
       value: 0,
       count: 0,
@@ -33,6 +34,7 @@ class App extends Component {
     this.narate = this.narate.bind(this);
     this.speak = this.speak.bind(this);
     this.start = this.start.bind(this);
+    this.callEvent = this.callEvent.bind(this);
 
   }
 
@@ -89,6 +91,16 @@ class App extends Component {
     this.updateState(ntext[0]);
   }
 
+
+  callEvent(ename,ac){
+    console.log('e',ename);
+   // console.log(ac)
+    AppStore.dispatchEvent(ename);
+    AppStore.getValue().then(value=>{
+      console.log(value);
+    })
+  }
+
   render() {
     return (
       <div>
@@ -97,9 +109,11 @@ class App extends Component {
             <div className="col-md-3">
               <SideBar />
               <button className="btn btn-success" onClick={this.start.bind(this)}>Speak</button>
-               
                 <button className="btn btn-success" onClick={this.stop}>Stop</button>
                 <button className="btn btn-success" onClick={this.play}>Resume</button>
+                <button className="btn btn-success" onClick={this.callEvent.bind(this,'ADD')}>ADD</button>
+                <button className="btn btn-success" onClick={this.callEvent.bind(this,'MULTIPLY')}>MULTIPLY</button>
+                <button className="btn btn-success" onClick={this.callEvent.bind(this,'SUBTRACT')}>SUBTRACT</button>
                </div>
             <div className="col-md-8">
               <Main />
