@@ -21,11 +21,11 @@ class InstaComponent extends Component {
     }
     render() {
         return (
-            <section class="notifi">
-                <div class="notifi-content">
+            <section className="notifi">
+                <div className="notifi-content">
                     <div>
                         <span>
-                            <div class="notifi-inner-content">
+                            <div className="notifi-inner-content">
                             {this.state.narrationText}
                                 </div>
                         </span>
