@@ -10,4 +10,4 @@
 * [React Router Dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom) - Router
 * [Gulp](https://codepen.io/pshrmn/pen/YZXZqM) - Using HashRouter
 * [Sanbox Example](https://codesandbox.io/s/vVoQVk78) - Using BrowserRouter
-* [jQuery] - duh
+* [jQuery](https://jquery.com/)
