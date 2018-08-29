@@ -14,8 +14,8 @@ import PlayerComponent from '../components/PlayerComponent';
 const Main = () => (
     <div>
         <Switch>
-            <Route exact path="/" component={SearchComponent} />
-            <Route path="/page" component={PaginationComponent} />
+            <Route exact path="/" component={()=> <SearchComponent/>} />
+            <Route path="/page" component={()=> <PaginationComponent/>} />
             <Route path="/checkbox" component={Checkbox} />
             <Route path="/dropdown" component={DropDown} />
             <Route path="/player" component={PlayerComponent} />
