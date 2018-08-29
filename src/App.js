@@ -6,7 +6,6 @@ import {
 } from 'react-router-dom';
 import './App.css';
 import AppStore from './store/AppStore';
-import CaptionComponent from '../src/components/CaptionComponent';
 import SideBar from '../src/components/SideBar';
 import Main from '../src/components/Main';
 import InstaComponent from '../src/components/InstaComponent';
@@ -93,8 +92,6 @@ class App extends Component {
 
 
   callEvent(ename,ac){
-    console.log('e',ename);
-   // console.log(ac)
     AppStore.dispatchEvent(ename);
     AppStore.getValue().then(value=>{
       console.log(value);
@@ -120,7 +117,6 @@ class App extends Component {
             </div>
           </div>
         </div>
-      {/* <CaptionComponent narration = {this.state.text} /> */}
       <InstaComponent narration = {this.state.text}/>
       </div>
     );
