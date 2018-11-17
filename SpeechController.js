@@ -1,10 +1,9 @@
-var synth = window.speechSynthesis;
-function populateVoiceList() {
-    voices = synth.getVoices();
-    return voices;
+const synth = window.speechSynthesis;
+const getVoiceList = () => {
+  voices = synth.getVoices();
+  return voices;
 }
 
-
 module.exports = {
-    "populateVoice": populateVoiceList
+  "getVoiceList": getVoiceList
 }
