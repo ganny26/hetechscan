@@ -3,6 +3,7 @@
   - Pagination Component
   - Checkbox Component
   - Dropdown Component
+  - Render Props
 
 # Router Configuration
 
